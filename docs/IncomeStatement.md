@@ -1,0 +1,33 @@
+# IncomeStatement
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**grossProfit** | **Long** |  |  [optional]
+**revenue** | **Long** |  |  [optional]
+**costOfRevenue** | **Long** |  |  [optional]
+**costOfGoodsAndServicesSold** | **Long** |  |  [optional]
+**operatingIncome** | **Long** |  |  [optional]
+**sellingGeneralAndAdministrative** | **Long** |  |  [optional]
+**researchAndDevelopment** | **Long** |  |  [optional]
+**operatingExpenses** | **Long** |  |  [optional]
+**investmentIncomeNet** | **Long** |  |  [optional]
+**netInterestIncome** | **Long** |  |  [optional]
+**interestIncome** | **Long** |  |  [optional]
+**interestExpense** | **Long** |  |  [optional]
+**nonInterestIncome** | **Long** |  |  [optional]
+**otherNonOperatingIncome** | **Long** |  |  [optional]
+**depreciation** | **Long** |  |  [optional]
+**depreciationAndAmortization** | **Long** |  |  [optional]
+**incomeBeforeTax** | **Long** |  |  [optional]
+**incomeTaxExpense** | **Long** |  |  [optional]
+**interestAndDebtExpense** | **Long** |  |  [optional]
+**netIncomeFromContinuingOperations** | **Long** |  |  [optional]
+**comprehensiveIncomeNetOfTax** | **Long** |  |  [optional]
+**ebit** | **Long** |  |  [optional]
+**ebitda** | **Long** |  |  [optional]
+**netIncome** | **Long** |  |  [optional]
+**effectOfAccountingCharges** | **Long** |  |  [optional]
+**taxProvision** | **Long** |  |  [optional]
+**sellingAndMarketingExpenses** | **Long** |  |  [optional]
+**extraordinaryItems** | **Long** |  |  [optional]
