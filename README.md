@@ -90,65 +90,6 @@ public class ExchangesApiExample {
         }
     }
 }
-import com.equibles.stocks.*;
-import com.equibles.stocks.auth.*;
-import com.equibles.stocks.models.*;
-import com.equibles.stocks.api.ExchangesApi;
-
-import java.io.File;
-import java.util.*;
-
-public class ExchangesApiExample {
-
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-        // Configure API key authorization: Query String
-        ApiKeyAuth Query String = (ApiKeyAuth) defaultClient.getAuthentication("Query String");
-        Query String.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Query String.setApiKeyPrefix("Token");
-
-        ExchangesApi apiInstance = new ExchangesApi();
-        try {
-            ExchangesResponse result = apiInstance.list();
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExchangesApi#list");
-            e.printStackTrace();
-        }
-    }
-}
-import com.equibles.stocks.*;
-import com.equibles.stocks.auth.*;
-import com.equibles.stocks.models.*;
-import com.equibles.stocks.api.ExchangesApi;
-
-import java.io.File;
-import java.util.*;
-
-public class ExchangesApiExample {
-
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-        // Configure API key authorization: Query String
-        ApiKeyAuth Query String = (ApiKeyAuth) defaultClient.getAuthentication("Query String");
-        Query String.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Query String.setApiKeyPrefix("Token");
-
-        ExchangesApi apiInstance = new ExchangesApi();
-        String operatingMic = "operatingMic_example"; // String | The operating MIC of the exchange to search.
-        try {
-            FinancialAssetsResponse result = apiInstance.stocks(operatingMic);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExchangesApi#stocks");
-            e.printStackTrace();
-        }
-    }
-}
 ```
 
 ## Documentation for API Endpoints
