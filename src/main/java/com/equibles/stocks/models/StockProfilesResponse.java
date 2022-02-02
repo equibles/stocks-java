@@ -14,8 +14,8 @@ package com.equibles.stocks.models;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.equibles.stocks.models.Dividend;
 import com.equibles.stocks.models.ResponseStatus;
+import com.equibles.stocks.models.StockProfile;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -26,11 +26,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 /**
- * DividendsResponse
+ * StockProfilesResponse
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-02-02T22:10:29.848Z[Europe/Lisbon]")
-public class DividendsResponse {
+public class StockProfilesResponse {
   @SerializedName("status")
   private ResponseStatus status = null;
 
@@ -38,12 +38,12 @@ public class DividendsResponse {
   private String errorMessage = null;
 
   @SerializedName("results")
-  private List<Dividend> results = null;
+  private List<StockProfile> results = null;
 
   @SerializedName("count")
   private Integer count = null;
 
-  public DividendsResponse status(ResponseStatus status) {
+  public StockProfilesResponse status(ResponseStatus status) {
     this.status = status;
     return this;
   }
@@ -75,7 +75,7 @@ public class DividendsResponse {
    * @return results
   **/
   @Schema(description = "The response results.")
-  public List<Dividend> getResults() {
+  public List<StockProfile> getResults() {
     return results;
   }
 
@@ -97,11 +97,11 @@ public class DividendsResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DividendsResponse dividendsResponse = (DividendsResponse) o;
-    return Objects.equals(this.status, dividendsResponse.status) &&
-        Objects.equals(this.errorMessage, dividendsResponse.errorMessage) &&
-        Objects.equals(this.results, dividendsResponse.results) &&
-        Objects.equals(this.count, dividendsResponse.count);
+    StockProfilesResponse stockProfilesResponse = (StockProfilesResponse) o;
+    return Objects.equals(this.status, stockProfilesResponse.status) &&
+        Objects.equals(this.errorMessage, stockProfilesResponse.errorMessage) &&
+        Objects.equals(this.results, stockProfilesResponse.results) &&
+        Objects.equals(this.count, stockProfilesResponse.count);
   }
 
   @Override
@@ -113,7 +113,7 @@ public class DividendsResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DividendsResponse {\n");
+    sb.append("class StockProfilesResponse {\n");
     
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");

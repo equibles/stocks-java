@@ -25,7 +25,7 @@ import java.io.IOException;
  * Image
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-01-28T01:43:07.282Z[Europe/Lisbon]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-02-02T22:10:29.848Z[Europe/Lisbon]")
 public class Image {
   @SerializedName("size")
   private Long size = null;

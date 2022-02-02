@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="list"></a>
 # **list**
-> CommonStocksResponse list(page, pageSize)
+> StockProfilesResponse list(page, pageSize)
 
 Get a list of all the available stocks.
 
@@ -38,7 +38,7 @@ StocksApi apiInstance = new StocksApi();
 Integer page = 1; // Integer | The number of the page to request.
 Integer pageSize = 100; // Integer | The number of elements in each page. Max value: 100.
 try {
-    CommonStocksResponse result = apiInstance.list(page, pageSize);
+    StockProfilesResponse result = apiInstance.list(page, pageSize);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StocksApi#list");
@@ -55,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonStocksResponse**](CommonStocksResponse.md)
+[**StockProfilesResponse**](StockProfilesResponse.md)
 
 ### Authorization
 
@@ -121,7 +121,7 @@ Name | Type | Description  | Notes
 
 <a name="profile"></a>
 # **profile**
-> CommonStockResponse profile(fullTicker)
+> StockProfileResponse profile(fullTicker)
 
 The profile of this stock.
 
@@ -145,7 +145,7 @@ Query String.setApiKey("YOUR API KEY");
 StocksApi apiInstance = new StocksApi();
 String fullTicker = "fullTicker_example"; // String | The fully qualified ticker of the stock. Example: AAPL.XNAS
 try {
-    CommonStockResponse result = apiInstance.profile(fullTicker);
+    StockProfileResponse result = apiInstance.profile(fullTicker);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StocksApi#profile");
@@ -161,7 +161,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonStockResponse**](CommonStockResponse.md)
+[**StockProfileResponse**](StockProfileResponse.md)
 
 ### Authorization
 
@@ -174,7 +174,7 @@ Name | Type | Description  | Notes
 
 <a name="screener"></a>
 # **screener**
-> CommonStocksResponse screener(body, page, pageSize)
+> StockProfilesResponse screener(body, page, pageSize)
 
 Get a list of stocks constraint to several criteria.
 
@@ -202,7 +202,7 @@ ScreenerRequest body = new ScreenerRequest(); // ScreenerRequest | The criteria 
 Integer page = 1; // Integer | The number of the page to request.
 Integer pageSize = 100; // Integer | The number of elements in each page. Max value: 100.
 try {
-    CommonStocksResponse result = apiInstance.screener(body, page, pageSize);
+    StockProfilesResponse result = apiInstance.screener(body, page, pageSize);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StocksApi#screener");
@@ -220,7 +220,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonStocksResponse**](CommonStocksResponse.md)
+[**StockProfilesResponse**](StockProfilesResponse.md)
 
 ### Authorization
 
@@ -233,7 +233,7 @@ Name | Type | Description  | Notes
 
 <a name="search"></a>
 # **search**
-> CommonStocksResponse search(text, page, pageSize)
+> StockProfilesResponse search(text, page, pageSize)
 
 Search among all the available stocks.
 
@@ -259,7 +259,7 @@ String text = "text_example"; // String | The text to search for.
 Integer page = 1; // Integer | The number of the page to request.
 Integer pageSize = 100; // Integer | The number of elements in each page. Max value: 100.
 try {
-    CommonStocksResponse result = apiInstance.search(text, page, pageSize);
+    StockProfilesResponse result = apiInstance.search(text, page, pageSize);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StocksApi#search");
@@ -277,7 +277,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonStocksResponse**](CommonStocksResponse.md)
+[**StockProfilesResponse**](StockProfilesResponse.md)
 
 ### Authorization
 

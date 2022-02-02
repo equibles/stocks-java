@@ -14,8 +14,8 @@ package com.equibles.stocks.models;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.equibles.stocks.models.Dividend;
 import com.equibles.stocks.models.ResponseStatus;
+import com.equibles.stocks.models.StockProfile;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,14 +23,12 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 /**
- * DividendsResponse
+ * StockProfileResponse
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-02-02T22:10:29.848Z[Europe/Lisbon]")
-public class DividendsResponse {
+public class StockProfileResponse {
   @SerializedName("status")
   private ResponseStatus status = null;
 
@@ -38,12 +36,12 @@ public class DividendsResponse {
   private String errorMessage = null;
 
   @SerializedName("results")
-  private List<Dividend> results = null;
+  private StockProfile results = null;
 
   @SerializedName("count")
   private Integer count = null;
 
-  public DividendsResponse status(ResponseStatus status) {
+  public StockProfileResponse status(ResponseStatus status) {
     this.status = status;
     return this;
   }
@@ -70,13 +68,22 @@ public class DividendsResponse {
     return errorMessage;
   }
 
+  public StockProfileResponse results(StockProfile results) {
+    this.results = results;
+    return this;
+  }
+
    /**
-   * The response results.
+   * Get results
    * @return results
   **/
-  @Schema(description = "The response results.")
-  public List<Dividend> getResults() {
+  @Schema(description = "")
+  public StockProfile getResults() {
     return results;
+  }
+
+  public void setResults(StockProfile results) {
+    this.results = results;
   }
 
    /**
@@ -97,11 +104,11 @@ public class DividendsResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DividendsResponse dividendsResponse = (DividendsResponse) o;
-    return Objects.equals(this.status, dividendsResponse.status) &&
-        Objects.equals(this.errorMessage, dividendsResponse.errorMessage) &&
-        Objects.equals(this.results, dividendsResponse.results) &&
-        Objects.equals(this.count, dividendsResponse.count);
+    StockProfileResponse stockProfileResponse = (StockProfileResponse) o;
+    return Objects.equals(this.status, stockProfileResponse.status) &&
+        Objects.equals(this.errorMessage, stockProfileResponse.errorMessage) &&
+        Objects.equals(this.results, stockProfileResponse.results) &&
+        Objects.equals(this.count, stockProfileResponse.count);
   }
 
   @Override
@@ -113,7 +120,7 @@ public class DividendsResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DividendsResponse {\n");
+    sb.append("class StockProfileResponse {\n");
     
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");

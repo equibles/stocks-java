@@ -26,6 +26,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import org.threeten.bp.OffsetDateTime;
 import com.equibles.stocks.models.PricesResponse;
 
 import java.lang.reflect.Type;
@@ -56,14 +57,16 @@ public class PricesApi {
     /**
      * Build call for endOfDay
      * @param fullTicker The fully qualified ticker of the stock. Example: AAPL.XNAS (required)
+     * @param startTime The start time of the window. UTC time formatted according to ISO 8601 (i.e: 2022-02-01T13:45:17) (optional)
+     * @param endTime The end time of the window. UTC time formatted according to ISO 8601 (i.e: 2022-02-01T13:45:17) (optional)
      * @param page The number of the page to request. (optional, default to 1)
-     * @param pageSize The number of elements in each page. Max value: 1000. (optional, default to 1000)
+     * @param pageSize The number of elements in each page. Max value: 50000. (optional, default to 1000)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call endOfDayCall(String fullTicker, Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call endOfDayCall(String fullTicker, OffsetDateTime startTime, OffsetDateTime endTime, Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -73,6 +76,10 @@ public class PricesApi {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (fullTicker != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("fullTicker", fullTicker));
+        if (startTime != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("startTime", startTime));
+        if (endTime != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("endTime", endTime));
         if (page != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
         if (pageSize != null)
@@ -111,13 +118,13 @@ public class PricesApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call endOfDayValidateBeforeCall(String fullTicker, Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call endOfDayValidateBeforeCall(String fullTicker, OffsetDateTime startTime, OffsetDateTime endTime, Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'fullTicker' is set
         if (fullTicker == null) {
             throw new ApiException("Missing the required parameter 'fullTicker' when calling endOfDay(Async)");
         }
         
-        com.squareup.okhttp.Call call = endOfDayCall(fullTicker, page, pageSize, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = endOfDayCall(fullTicker, startTime, endTime, page, pageSize, progressListener, progressRequestListener);
         return call;
 
         
@@ -130,13 +137,15 @@ public class PricesApi {
      * Lists the end of day prices for a given stock.
      * 
      * @param fullTicker The fully qualified ticker of the stock. Example: AAPL.XNAS (required)
+     * @param startTime The start time of the window. UTC time formatted according to ISO 8601 (i.e: 2022-02-01T13:45:17) (optional)
+     * @param endTime The end time of the window. UTC time formatted according to ISO 8601 (i.e: 2022-02-01T13:45:17) (optional)
      * @param page The number of the page to request. (optional, default to 1)
-     * @param pageSize The number of elements in each page. Max value: 1000. (optional, default to 1000)
+     * @param pageSize The number of elements in each page. Max value: 50000. (optional, default to 1000)
      * @return PricesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public PricesResponse endOfDay(String fullTicker, Integer page, Integer pageSize) throws ApiException {
-        ApiResponse<PricesResponse> resp = endOfDayWithHttpInfo(fullTicker, page, pageSize);
+    public PricesResponse endOfDay(String fullTicker, OffsetDateTime startTime, OffsetDateTime endTime, Integer page, Integer pageSize) throws ApiException {
+        ApiResponse<PricesResponse> resp = endOfDayWithHttpInfo(fullTicker, startTime, endTime, page, pageSize);
         return resp.getData();
     }
 
@@ -144,13 +153,15 @@ public class PricesApi {
      * Lists the end of day prices for a given stock.
      * 
      * @param fullTicker The fully qualified ticker of the stock. Example: AAPL.XNAS (required)
+     * @param startTime The start time of the window. UTC time formatted according to ISO 8601 (i.e: 2022-02-01T13:45:17) (optional)
+     * @param endTime The end time of the window. UTC time formatted according to ISO 8601 (i.e: 2022-02-01T13:45:17) (optional)
      * @param page The number of the page to request. (optional, default to 1)
-     * @param pageSize The number of elements in each page. Max value: 1000. (optional, default to 1000)
+     * @param pageSize The number of elements in each page. Max value: 50000. (optional, default to 1000)
      * @return ApiResponse&lt;PricesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<PricesResponse> endOfDayWithHttpInfo(String fullTicker, Integer page, Integer pageSize) throws ApiException {
-        com.squareup.okhttp.Call call = endOfDayValidateBeforeCall(fullTicker, page, pageSize, null, null);
+    public ApiResponse<PricesResponse> endOfDayWithHttpInfo(String fullTicker, OffsetDateTime startTime, OffsetDateTime endTime, Integer page, Integer pageSize) throws ApiException {
+        com.squareup.okhttp.Call call = endOfDayValidateBeforeCall(fullTicker, startTime, endTime, page, pageSize, null, null);
         Type localVarReturnType = new TypeToken<PricesResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -159,13 +170,15 @@ public class PricesApi {
      * Lists the end of day prices for a given stock. (asynchronously)
      * 
      * @param fullTicker The fully qualified ticker of the stock. Example: AAPL.XNAS (required)
+     * @param startTime The start time of the window. UTC time formatted according to ISO 8601 (i.e: 2022-02-01T13:45:17) (optional)
+     * @param endTime The end time of the window. UTC time formatted according to ISO 8601 (i.e: 2022-02-01T13:45:17) (optional)
      * @param page The number of the page to request. (optional, default to 1)
-     * @param pageSize The number of elements in each page. Max value: 1000. (optional, default to 1000)
+     * @param pageSize The number of elements in each page. Max value: 50000. (optional, default to 1000)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call endOfDayAsync(String fullTicker, Integer page, Integer pageSize, final ApiCallback<PricesResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call endOfDayAsync(String fullTicker, OffsetDateTime startTime, OffsetDateTime endTime, Integer page, Integer pageSize, final ApiCallback<PricesResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -186,7 +199,157 @@ public class PricesApi {
             };
         }
 
-        com.squareup.okhttp.Call call = endOfDayValidateBeforeCall(fullTicker, page, pageSize, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = endOfDayValidateBeforeCall(fullTicker, startTime, endTime, page, pageSize, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<PricesResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for intraday
+     * @param fullTicker The fully qualified ticker of the stock. Example: AAPL.XNAS (required)
+     * @param startTime The start time of the window. UTC time formatted according to ISO 8601 (i.e: 2022-02-01T13:45:17) (optional)
+     * @param endTime The end time of the window. UTC time formatted according to ISO 8601 (i.e: 2022-02-01T13:45:17) (optional)
+     * @param page The number of the page to request. (optional, default to 1)
+     * @param pageSize The number of elements in each page. Max value: 50000. (optional, default to 1000)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call intradayCall(String fullTicker, OffsetDateTime startTime, OffsetDateTime endTime, Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/stocks/prices/intraday";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (fullTicker != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("fullTicker", fullTicker));
+        if (startTime != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("startTime", startTime));
+        if (endTime != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("endTime", endTime));
+        if (page != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
+        if (pageSize != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("pageSize", pageSize));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "text/plain", "application/json", "text/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Query String" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call intradayValidateBeforeCall(String fullTicker, OffsetDateTime startTime, OffsetDateTime endTime, Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'fullTicker' is set
+        if (fullTicker == null) {
+            throw new ApiException("Missing the required parameter 'fullTicker' when calling intraday(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = intradayCall(fullTicker, startTime, endTime, page, pageSize, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Lists the intraday prices for a given stock with one minute precision.
+     * 
+     * @param fullTicker The fully qualified ticker of the stock. Example: AAPL.XNAS (required)
+     * @param startTime The start time of the window. UTC time formatted according to ISO 8601 (i.e: 2022-02-01T13:45:17) (optional)
+     * @param endTime The end time of the window. UTC time formatted according to ISO 8601 (i.e: 2022-02-01T13:45:17) (optional)
+     * @param page The number of the page to request. (optional, default to 1)
+     * @param pageSize The number of elements in each page. Max value: 50000. (optional, default to 1000)
+     * @return PricesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public PricesResponse intraday(String fullTicker, OffsetDateTime startTime, OffsetDateTime endTime, Integer page, Integer pageSize) throws ApiException {
+        ApiResponse<PricesResponse> resp = intradayWithHttpInfo(fullTicker, startTime, endTime, page, pageSize);
+        return resp.getData();
+    }
+
+    /**
+     * Lists the intraday prices for a given stock with one minute precision.
+     * 
+     * @param fullTicker The fully qualified ticker of the stock. Example: AAPL.XNAS (required)
+     * @param startTime The start time of the window. UTC time formatted according to ISO 8601 (i.e: 2022-02-01T13:45:17) (optional)
+     * @param endTime The end time of the window. UTC time formatted according to ISO 8601 (i.e: 2022-02-01T13:45:17) (optional)
+     * @param page The number of the page to request. (optional, default to 1)
+     * @param pageSize The number of elements in each page. Max value: 50000. (optional, default to 1000)
+     * @return ApiResponse&lt;PricesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<PricesResponse> intradayWithHttpInfo(String fullTicker, OffsetDateTime startTime, OffsetDateTime endTime, Integer page, Integer pageSize) throws ApiException {
+        com.squareup.okhttp.Call call = intradayValidateBeforeCall(fullTicker, startTime, endTime, page, pageSize, null, null);
+        Type localVarReturnType = new TypeToken<PricesResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Lists the intraday prices for a given stock with one minute precision. (asynchronously)
+     * 
+     * @param fullTicker The fully qualified ticker of the stock. Example: AAPL.XNAS (required)
+     * @param startTime The start time of the window. UTC time formatted according to ISO 8601 (i.e: 2022-02-01T13:45:17) (optional)
+     * @param endTime The end time of the window. UTC time formatted according to ISO 8601 (i.e: 2022-02-01T13:45:17) (optional)
+     * @param page The number of the page to request. (optional, default to 1)
+     * @param pageSize The number of elements in each page. Max value: 50000. (optional, default to 1000)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call intradayAsync(String fullTicker, OffsetDateTime startTime, OffsetDateTime endTime, Integer page, Integer pageSize, final ApiCallback<PricesResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = intradayValidateBeforeCall(fullTicker, startTime, endTime, page, pageSize, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<PricesResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

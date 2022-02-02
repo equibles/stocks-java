@@ -27,7 +27,7 @@ import org.threeten.bp.OffsetDateTime;
  * Transaction
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-01-28T01:43:07.282Z[Europe/Lisbon]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-02-02T22:10:29.848Z[Europe/Lisbon]")
 public class Transaction {
   @SerializedName("date")
   private OffsetDateTime date = null;

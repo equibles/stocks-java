@@ -1,4 +1,4 @@
-# equibles-stocks
+# Equibles Stocks API for Java
 
 ## Requirements
 

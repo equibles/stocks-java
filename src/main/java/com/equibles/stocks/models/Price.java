@@ -26,7 +26,7 @@ import org.threeten.bp.OffsetDateTime;
  * Price
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-01-28T01:43:07.282Z[Europe/Lisbon]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-02-02T22:10:29.848Z[Europe/Lisbon]")
 public class Price {
   @SerializedName("close")
   private Double close = null;
@@ -42,9 +42,6 @@ public class Price {
 
   @SerializedName("volume")
   private Long volume = null;
-
-  @SerializedName("splitFactor")
-  private Double splitFactor = null;
 
   @SerializedName("time")
   private OffsetDateTime time = null;
@@ -139,24 +136,6 @@ public class Price {
     this.volume = volume;
   }
 
-  public Price splitFactor(Double splitFactor) {
-    this.splitFactor = splitFactor;
-    return this;
-  }
-
-   /**
-   * Get splitFactor
-   * @return splitFactor
-  **/
-  @Schema(description = "")
-  public Double getSplitFactor() {
-    return splitFactor;
-  }
-
-  public void setSplitFactor(Double splitFactor) {
-    this.splitFactor = splitFactor;
-  }
-
   public Price time(OffsetDateTime time) {
     this.time = time;
     return this;
@@ -190,13 +169,12 @@ public class Price {
         Objects.equals(this.low, price.low) &&
         Objects.equals(this.open, price.open) &&
         Objects.equals(this.volume, price.volume) &&
-        Objects.equals(this.splitFactor, price.splitFactor) &&
         Objects.equals(this.time, price.time);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(close, high, low, open, volume, splitFactor, time);
+    return Objects.hash(close, high, low, open, volume, time);
   }
 
 
@@ -210,7 +188,6 @@ public class Price {
     sb.append("    low: ").append(toIndentedString(low)).append("\n");
     sb.append("    open: ").append(toIndentedString(open)).append("\n");
     sb.append("    volume: ").append(toIndentedString(volume)).append("\n");
-    sb.append("    splitFactor: ").append(toIndentedString(splitFactor)).append("\n");
     sb.append("    time: ").append(toIndentedString(time)).append("\n");
     sb.append("}");
     return sb.toString();

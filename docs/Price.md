@@ -8,5 +8,4 @@ Name | Type | Description | Notes
 **low** | **Double** |  |  [optional]
 **open** | **Double** |  |  [optional]
 **volume** | **Long** |  |  [optional]
-**splitFactor** | **Double** |  |  [optional]
 **time** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]

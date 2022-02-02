@@ -27,7 +27,8 @@ import com.google.gson.stream.JsonWriter;
 @JsonAdapter(AssetType.Adapter.class)
 public enum AssetType {
   COMMONSTOCK("CommonStock"),
-  PREFERREDSTOCK("PreferredStock");
+  PREFERREDSTOCK("PreferredStock"),
+  CRYPTOCURRENCY("CryptoCurrency");
 
   private String value;
 

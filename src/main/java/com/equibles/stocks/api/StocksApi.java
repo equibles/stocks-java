@@ -26,11 +26,11 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import com.equibles.stocks.models.CommonStockResponse;
-import com.equibles.stocks.models.CommonStocksResponse;
 import com.equibles.stocks.models.OfficersResponse;
 import com.equibles.stocks.models.ScreenerRequest;
 import com.equibles.stocks.models.SplitsResponse;
+import com.equibles.stocks.models.StockProfileResponse;
+import com.equibles.stocks.models.StockProfilesResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -128,11 +128,11 @@ public class StocksApi {
      * 
      * @param page The number of the page to request. (optional, default to 1)
      * @param pageSize The number of elements in each page. Max value: 100. (optional, default to 100)
-     * @return CommonStocksResponse
+     * @return StockProfilesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CommonStocksResponse list(Integer page, Integer pageSize) throws ApiException {
-        ApiResponse<CommonStocksResponse> resp = listWithHttpInfo(page, pageSize);
+    public StockProfilesResponse list(Integer page, Integer pageSize) throws ApiException {
+        ApiResponse<StockProfilesResponse> resp = listWithHttpInfo(page, pageSize);
         return resp.getData();
     }
 
@@ -141,12 +141,12 @@ public class StocksApi {
      * 
      * @param page The number of the page to request. (optional, default to 1)
      * @param pageSize The number of elements in each page. Max value: 100. (optional, default to 100)
-     * @return ApiResponse&lt;CommonStocksResponse&gt;
+     * @return ApiResponse&lt;StockProfilesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CommonStocksResponse> listWithHttpInfo(Integer page, Integer pageSize) throws ApiException {
+    public ApiResponse<StockProfilesResponse> listWithHttpInfo(Integer page, Integer pageSize) throws ApiException {
         com.squareup.okhttp.Call call = listValidateBeforeCall(page, pageSize, null, null);
-        Type localVarReturnType = new TypeToken<CommonStocksResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<StockProfilesResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -159,7 +159,7 @@ public class StocksApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call listAsync(Integer page, Integer pageSize, final ApiCallback<CommonStocksResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call listAsync(Integer page, Integer pageSize, final ApiCallback<StockProfilesResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -181,7 +181,7 @@ public class StocksApi {
         }
 
         com.squareup.okhttp.Call call = listValidateBeforeCall(page, pageSize, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<CommonStocksResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<StockProfilesResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -382,11 +382,11 @@ public class StocksApi {
      * The profile of this stock.
      * 
      * @param fullTicker The fully qualified ticker of the stock. Example: AAPL.XNAS (required)
-     * @return CommonStockResponse
+     * @return StockProfileResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CommonStockResponse profile(String fullTicker) throws ApiException {
-        ApiResponse<CommonStockResponse> resp = profileWithHttpInfo(fullTicker);
+    public StockProfileResponse profile(String fullTicker) throws ApiException {
+        ApiResponse<StockProfileResponse> resp = profileWithHttpInfo(fullTicker);
         return resp.getData();
     }
 
@@ -394,12 +394,12 @@ public class StocksApi {
      * The profile of this stock.
      * 
      * @param fullTicker The fully qualified ticker of the stock. Example: AAPL.XNAS (required)
-     * @return ApiResponse&lt;CommonStockResponse&gt;
+     * @return ApiResponse&lt;StockProfileResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CommonStockResponse> profileWithHttpInfo(String fullTicker) throws ApiException {
+    public ApiResponse<StockProfileResponse> profileWithHttpInfo(String fullTicker) throws ApiException {
         com.squareup.okhttp.Call call = profileValidateBeforeCall(fullTicker, null, null);
-        Type localVarReturnType = new TypeToken<CommonStockResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<StockProfileResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -411,7 +411,7 @@ public class StocksApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call profileAsync(String fullTicker, final ApiCallback<CommonStockResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call profileAsync(String fullTicker, final ApiCallback<StockProfileResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -433,7 +433,7 @@ public class StocksApi {
         }
 
         com.squareup.okhttp.Call call = profileValidateBeforeCall(fullTicker, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<CommonStockResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<StockProfileResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -514,11 +514,11 @@ public class StocksApi {
      * @param body The criteria used to filter the search results. You only need to fill the fields that you want to use on the search. (required)
      * @param page The number of the page to request. (optional, default to 1)
      * @param pageSize The number of elements in each page. Max value: 100. (optional, default to 100)
-     * @return CommonStocksResponse
+     * @return StockProfilesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CommonStocksResponse screener(ScreenerRequest body, Integer page, Integer pageSize) throws ApiException {
-        ApiResponse<CommonStocksResponse> resp = screenerWithHttpInfo(body, page, pageSize);
+    public StockProfilesResponse screener(ScreenerRequest body, Integer page, Integer pageSize) throws ApiException {
+        ApiResponse<StockProfilesResponse> resp = screenerWithHttpInfo(body, page, pageSize);
         return resp.getData();
     }
 
@@ -528,12 +528,12 @@ public class StocksApi {
      * @param body The criteria used to filter the search results. You only need to fill the fields that you want to use on the search. (required)
      * @param page The number of the page to request. (optional, default to 1)
      * @param pageSize The number of elements in each page. Max value: 100. (optional, default to 100)
-     * @return ApiResponse&lt;CommonStocksResponse&gt;
+     * @return ApiResponse&lt;StockProfilesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CommonStocksResponse> screenerWithHttpInfo(ScreenerRequest body, Integer page, Integer pageSize) throws ApiException {
+    public ApiResponse<StockProfilesResponse> screenerWithHttpInfo(ScreenerRequest body, Integer page, Integer pageSize) throws ApiException {
         com.squareup.okhttp.Call call = screenerValidateBeforeCall(body, page, pageSize, null, null);
-        Type localVarReturnType = new TypeToken<CommonStocksResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<StockProfilesResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -547,7 +547,7 @@ public class StocksApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call screenerAsync(ScreenerRequest body, Integer page, Integer pageSize, final ApiCallback<CommonStocksResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call screenerAsync(ScreenerRequest body, Integer page, Integer pageSize, final ApiCallback<StockProfilesResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -569,7 +569,7 @@ public class StocksApi {
         }
 
         com.squareup.okhttp.Call call = screenerValidateBeforeCall(body, page, pageSize, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<CommonStocksResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<StockProfilesResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -652,11 +652,11 @@ public class StocksApi {
      * @param text The text to search for. (required)
      * @param page The number of the page to request. (optional, default to 1)
      * @param pageSize The number of elements in each page. Max value: 100. (optional, default to 100)
-     * @return CommonStocksResponse
+     * @return StockProfilesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CommonStocksResponse search(String text, Integer page, Integer pageSize) throws ApiException {
-        ApiResponse<CommonStocksResponse> resp = searchWithHttpInfo(text, page, pageSize);
+    public StockProfilesResponse search(String text, Integer page, Integer pageSize) throws ApiException {
+        ApiResponse<StockProfilesResponse> resp = searchWithHttpInfo(text, page, pageSize);
         return resp.getData();
     }
 
@@ -666,12 +666,12 @@ public class StocksApi {
      * @param text The text to search for. (required)
      * @param page The number of the page to request. (optional, default to 1)
      * @param pageSize The number of elements in each page. Max value: 100. (optional, default to 100)
-     * @return ApiResponse&lt;CommonStocksResponse&gt;
+     * @return ApiResponse&lt;StockProfilesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CommonStocksResponse> searchWithHttpInfo(String text, Integer page, Integer pageSize) throws ApiException {
+    public ApiResponse<StockProfilesResponse> searchWithHttpInfo(String text, Integer page, Integer pageSize) throws ApiException {
         com.squareup.okhttp.Call call = searchValidateBeforeCall(text, page, pageSize, null, null);
-        Type localVarReturnType = new TypeToken<CommonStocksResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<StockProfilesResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -685,7 +685,7 @@ public class StocksApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call searchAsync(String text, Integer page, Integer pageSize, final ApiCallback<CommonStocksResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call searchAsync(String text, Integer page, Integer pageSize, final ApiCallback<StockProfilesResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -707,7 +707,7 @@ public class StocksApi {
         }
 
         com.squareup.okhttp.Call call = searchValidateBeforeCall(text, page, pageSize, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<CommonStocksResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<StockProfilesResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

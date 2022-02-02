@@ -7,7 +7,6 @@
 *.jar
 *.war
 *.ear
-.idea/
 
 # exclude jar for gradle wrapper
 !gradle/wrapper/*.jar
